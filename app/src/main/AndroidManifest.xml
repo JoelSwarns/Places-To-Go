@@ -10,6 +10,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".SupermarketsActivity"
+            android:exported="true"
+            android:label="Supermarkets"/>
+        <activity
+            android:name=".RestaurantsActivity"
+            android:exported="true"
+            android:label="Restaurants"/>
+        <activity
+            android:name=".PharmacyActivity"
+            android:exported="true"
+            android:label="Pharmacy"/>
+        <activity
+            android:name=".MovieTheatersActivity"
+            android:exported="true"
+            android:label="Movie Theaters"/>
+        <activity
+            android:name=".HotelsActivity"
+            android:exported="true"
+            android:label="Hotels"/>
+        <activity
+            android:name=".HospitalsActivity"
+            android:exported="true"
+            android:label="Hospitals"/>
+        <activity
+            android:name=".GasStationsActivity"
+            android:exported="true"
+            android:label="Gas Stations"/>
+        <activity
+            android:name=".BanksActivity"
+            android:exported="true"
+            android:label="Banks"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
