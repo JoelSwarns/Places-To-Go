@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/mainAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -13,11 +14,95 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/main_menu_app_bar"
-            app:title="Places To Go"
             app:navigationIcon="@drawable/outline_menu_black_18"
-            />
+            app:title="Places To Go" />
 
 
     </com.google.android.material.appbar.AppBarLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mainAppBarLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/banksTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/banks"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/coffeeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/banksTextView"
+                android:text="@string/coffee"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/gasStationTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coffeeTextView"
+                android:text="@string/gas_stations"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/hospitalsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gasStationTextView"
+                android:text="@string/hospitals"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/hotelsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hospitalsTextView"
+                android:text="@string/hotels"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/movieTheatersTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hotelsTextView"
+                android:text="@string/movie_theaters"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/pharmacyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/movieTheatersTextView"
+                android:text="@string/pharmacy"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/restaurantsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pharmacyTextView"
+                android:text="@string/restaurants"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/supermarketTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/restaurantsTextView"
+                android:text="@string/supermarkets"
+                android:textSize="20dp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
