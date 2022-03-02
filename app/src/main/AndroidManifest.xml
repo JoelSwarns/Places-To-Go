@@ -12,35 +12,43 @@
         <activity
             android:name=".SupermarketsActivity"
             android:exported="true"
-            android:label="Supermarkets"/>
+            android:label="Supermarkets"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".RestaurantsActivity"
             android:exported="true"
-            android:label="Restaurants"/>
+            android:label="Restaurants"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".PharmacyActivity"
             android:exported="true"
-            android:label="Pharmacy"/>
+            android:label="Pharmacy"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MovieTheatersActivity"
             android:exported="true"
-            android:label="Movie Theaters"/>
+            android:label="Movie Theaters"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".HotelsActivity"
             android:exported="true"
-            android:label="Hotels"/>
+            android:label="Hotels"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".HospitalsActivity"
             android:exported="true"
-            android:label="Hospitals"/>
+            android:label="Hospitals"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".GasStationsActivity"
             android:exported="true"
-            android:label="Gas Stations"/>
+            android:label="Gas Stations"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".BanksActivity"
             android:exported="true"
-            android:label="Banks"/>
+            android:label="Banks"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
