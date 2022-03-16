@@ -1,5 +1,6 @@
 package com.example.placestogo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     TextView banksTextView;
@@ -21,15 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView restaurantsTextView;
     TextView supermarketsTextView;
 
-    Intent banksActivityIntent = new Intent(MainActivity.this, BanksActivity.class);
-    Intent coffeeActivityIntent = new Intent(MainActivity.this, CoffeeActivity.class);
-    Intent gasActivityIntent = new Intent(MainActivity.this, GasStationsActivity.class);
-    Intent hospitalsActivityIntent = new Intent(MainActivity.this, HospitalsActivity.class);
-    Intent hotelsActivityIntent = new Intent(MainActivity.this, HotelsActivity.class);
-    Intent movieTheatersActivityIntent = new Intent(MainActivity.this, MovieTheatersActivity.class);
-    Intent pharmacyActivityIntent = new Intent(MainActivity.this, PharmacyActivity.class);
-    Intent restaurantsActivityIntent = new Intent(MainActivity.this, RestaurantsActivity.class);
-    Intent supermarketsActivityIntent = new Intent(MainActivity.this, SupermarketsActivity.class);
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,50 +43,86 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         restaurantsTextView = findViewById(R.id.restaurantsTextView);
         supermarketsTextView = findViewById(R.id.supermarketTextView);
 
-        banksTextView.setOnClickListener(this);
-        coffeeTextView.setOnClickListener(this);
-        gasStationsTextView.setOnClickListener(this);
-        hospitalsTextView.setOnClickListener(this);
-        hotelsTextView.setOnClickListener(this);
-        movieTheatersTextView.setOnClickListener(this);
-        pharmacyTextView.setOnClickListener(this);
-        restaurantsTextView.setOnClickListener(this);
-        supermarketsTextView.setOnClickListener(this);
+        banksTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()) {
-            case R.id.banksTextView:
+                Intent banksActivityIntent = new Intent(MainActivity.this, BanksActivity.class);
                 startActivity(banksActivityIntent);
-                break;
-            case R.id.coffeeTextView:
-                startActivity(coffeeActivityIntent);
-                break;
-            case R.id.gasStationTextView:
-                startActivity(gasActivityIntent);
-                break;
-            case R.id.hospitalsTextView:
-                startActivity(hospitalsActivityIntent);
-                break;
-            case R.id.hotelsTextView:
-                startActivity(hotelsActivityIntent);
-                break;
-            case R.id.movieTheatersTextView:
-                startActivity(movieTheatersActivityIntent);
-                break;
-            case R.id.pharmacyTextView:
-                startActivity(pharmacyActivityIntent);
-                break;
-            case R.id.restaurantsTextView:
-                startActivity(restaurantsActivityIntent);
-                break;
-            case R.id.supermarketTextView:
-                startActivity(supermarketsActivityIntent);
-                break;
+            }
+        });
 
-        }
+        coffeeTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent coffeeActivityIntent = new Intent(MainActivity.this, CoffeeActivity.class);
+                startActivity(coffeeActivityIntent);
+            }
+        });
+
+        gasStationsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gasActivityIntent = new Intent(MainActivity.this, GasStationsActivity.class);
+                startActivity(gasActivityIntent);
+            }
+        });
+
+        hospitalsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent hospitalsActivityIntent = new Intent(MainActivity.this, HospitalsActivity.class);
+                startActivity(hospitalsActivityIntent);
+            }
+        });
+
+        hotelsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent hotelsActivityIntent = new Intent(MainActivity.this, HotelsActivity.class);
+                startActivity(hotelsActivityIntent);
+            }
+        });
+
+        movieTheatersTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent movieTheatersActivityIntent = new Intent(MainActivity.this, MovieTheatersActivity.class);
+                startActivity(movieTheatersActivityIntent);
+            }
+        });
+
+        pharmacyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent pharmacyActivityIntent = new Intent(MainActivity.this, RestaurantsActivity.class);
+                startActivity(pharmacyActivityIntent);
+            }
+        });
+
+        restaurantsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent restaurantsActivityIntent = new Intent(MainActivity.this, RestaurantsActivity.class);
+                startActivity(restaurantsActivityIntent);
+            }
+        });
+
+        supermarketsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent supermarketsActivityIntent = new Intent(MainActivity.this, SupermarketsActivity.class);
+                startActivity(supermarketsActivityIntent);
+            }
+        });
+
+
     }
 
 
