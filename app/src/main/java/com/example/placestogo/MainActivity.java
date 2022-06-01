@@ -12,18 +12,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.net.PlacesClient;
+
 public class MainActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    TextView banksTextView;
-    TextView coffeeTextView;
-    TextView gasStationsTextView;
-    TextView hospitalsTextView;
-    TextView hotelsTextView;
-    TextView movieTheatersTextView;
-    TextView pharmacyTextView;
-    TextView restaurantsTextView;
-    TextView supermarketsTextView;
+    private Toolbar toolbar;
+    private TextView banksTextView;
+    private TextView coffeeTextView;
+    private TextView gasStationsTextView;
+    private TextView hospitalsTextView;
+    private TextView hotelsTextView;
+    private TextView movieTheatersTextView;
+    private TextView pharmacyTextView;
+    private TextView restaurantsTextView;
+    private TextView supermarketsTextView;
 
 
 
@@ -142,7 +145,12 @@ public class MainActivity extends AppCompatActivity {
                             Boolean coarseLocationGranted = result.getOrDefault(
                                     Manifest.permission.ACCESS_COARSE_LOCATION,false);
                             if (fineLocationGranted != null && fineLocationGranted) {
-                                // Precise location access granted.
+                                // Initialize the SDK
+                                final String apiKey = "AIzaSyBHZjfB33YaW9g3FONf2968XKOPnP8O8gU";
+                                Places.initialize(getApplicationContext(), apiKey);
+
+                                // Create a new PlacesClient instance
+                                PlacesClient placesClient = Places.createClient(this);
                             } else if (coarseLocationGranted != null && coarseLocationGranted) {
                                 // Only approximate location access granted.
                             } else {
