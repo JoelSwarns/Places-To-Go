@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.net.PlacesClient;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -137,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onStart();
 
+        final String apiKey = BuildConfig.MAPS_API_KEY;
+
+        //Request location permission from user
         ActivityResultLauncher<String[]> locationPermissionRequest =
                 registerForActivityResult(new ActivityResultContracts
                                 .RequestMultiplePermissions(), result -> {
@@ -145,25 +148,17 @@ public class MainActivity extends AppCompatActivity {
                             Boolean coarseLocationGranted = result.getOrDefault(
                                     Manifest.permission.ACCESS_COARSE_LOCATION,false);
                             if (fineLocationGranted != null && fineLocationGranted) {
-                                // Initialize the SDK
-                                final String apiKey = "AIzaSyBHZjfB33YaW9g3FONf2968XKOPnP8O8gU";
+                                // Initialize the SDK. Setup Places Client
                                 Places.initialize(getApplicationContext(), apiKey);
-
-                                // Create a new PlacesClient instance
-                                PlacesClient placesClient = Places.createClient(this);
                             } else if (coarseLocationGranted != null && coarseLocationGranted) {
                                 // Only approximate location access granted.
+                                Places.initialize(getApplicationContext(), apiKey);
                             } else {
                                 // No location access granted.
                             }
                         }
                 );
 
-        // ...
-
-        // Before you perform the actual permission request, check whether your app
-        // already has the permissions, and whether your app needs to show a permission
-        // rationale dialog. For more details, see Request permissions.
         locationPermissionRequest.launch(new String[] {
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION
