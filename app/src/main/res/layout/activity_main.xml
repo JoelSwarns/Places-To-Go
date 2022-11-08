@@ -1,108 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/mainAppBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/mainAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/main_menu_app_bar"
-            app:navigationIcon="@drawable/outline_menu_black_18"
-            app:title="Places To Go" />
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/text_view1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mainAppBarLayout">
+        android:layout_marginTop="12dp"
+        android:text="Text View 1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_view" />
 
-        <RelativeLayout
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Button 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:hint="This is our multi-lined textbox!!!"
+        app:layout_constraintBottom_toTopOf="@id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/text_view1">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
 
-            <TextView
-                android:id="@+id/banksTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/banks"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/coffeeTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/banksTextView"
-                android:text="@string/coffee"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/gasStationTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/coffeeTextView"
-                android:text="@string/gas_stations"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/hospitalsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/gasStationTextView"
-                android:text="@string/hospitals"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/hotelsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/hospitalsTextView"
-                android:text="@string/hotels"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/movieTheatersTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/hotelsTextView"
-                android:text="@string/movie_theaters"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/pharmacyTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/movieTheatersTextView"
-                android:text="@string/pharmacy"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/restaurantsTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/pharmacyTextView"
-                android:text="@string/restaurants"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/supermarketTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/restaurantsTextView"
-                android:text="@string/supermarkets"
-                android:textSize="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-        </RelativeLayout>
-    </ScrollView>
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
