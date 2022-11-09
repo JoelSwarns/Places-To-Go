@@ -22,7 +22,7 @@
         android:title="@string/title_gas" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_bank"
         android:icon="@drawable/ic_baseline_bank_atm_24"
         android:title="@string/title_bank" />
 
