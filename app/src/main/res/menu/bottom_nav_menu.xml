@@ -7,13 +7,23 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_coffee"
+        android:icon="@drawable/ic_coffee_24"
+        android:title="@string/title_coffee" />
+
+    <item
+        android:id="@+id/navigation_restaurants"
+        android:icon="@drawable/ic_restaurants_24"
+        android:title="@string/title_restaurants" />
+
+    <item
+        android:id="@+id/navigation_gas"
+        android:icon="@drawable/ic_gas_station_24"
+        android:title="@string/title_gas" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:icon="@drawable/ic_baseline_bank_atm_24"
+        android:title="@string/title_bank" />
 
 </menu>
