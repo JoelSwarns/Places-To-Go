@@ -29,6 +29,7 @@ public class CoffeeFragment extends Fragment {
         getActivity().setTitle("Coffee");
 
         View view = inflater.inflate(R.layout.fragment_coffee, container, false);
+
         SupportMapFragment supportMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.fragment_coffee);
 
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
