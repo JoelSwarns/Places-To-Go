@@ -78,7 +78,7 @@ public class CoffeeFragment extends Fragment {
         return view;
     }
 
-    @Override
+    //@Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         this.googleMap = googleMap;
         // When map is loaded
@@ -90,10 +90,10 @@ public class CoffeeFragment extends Fragment {
         updateLocationUI();
 
         // Get the current location of the device and set the position of the map.
-        getDeviceLocation();
+        //getDeviceLocation();
     }
 
-    private void getDeviceLocation() {
+    /*private void getDeviceLocation() {
         try {
             if (locationPermissionGranted) {
                 Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
@@ -121,7 +121,7 @@ public class CoffeeFragment extends Fragment {
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage(), e);
         }
-    }
+    }*/
 
     private void getLocationPermission() {
         if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
@@ -141,10 +141,10 @@ public class CoffeeFragment extends Fragment {
         }
         try {
             if (locationPermissionGranted) {
-                googleMap.setMyLocationEnabled(true);
+                //googleMap.setMyLocationEnabled(true);
                 googleMap.getUiSettings().setMyLocationButtonEnabled(true);
             } else {
-                googleMap.setMyLocationEnabled(false);
+                //googleMap.setMyLocationEnabled(false);
                 googleMap.getUiSettings().setMyLocationButtonEnabled(false);
                 lastKnownLocation = null;
                 getLocationPermission();
