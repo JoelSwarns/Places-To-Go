@@ -5,6 +5,8 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -29,8 +31,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
+import java.util.concurrent.Executor;
 
-public class CoffeeFragment extends Fragment {
+
+public class CoffeeFragment extends Fragment implements OnMapReadyCallback {
 
     private static final String TAG = CoffeeFragment.class.getSimpleName();
     // The entry point to the Places API.
@@ -42,6 +46,18 @@ public class CoffeeFragment extends Fragment {
     private Location lastKnownLocation;
     private GoogleMap googleMap;
     private final LatLng defaultLocation = new LatLng(40.7128, 74.0060 );
+    private static final int DEFAULT_ZOOM = 15;
+
+    private ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    locationPermissionGranted = true;
+                } else {
+                    locationPermissionGranted = false;
+                }
+            });
+
+
     public CoffeeFragment() {
         // Required empty public constructor
     }
@@ -78,7 +94,7 @@ public class CoffeeFragment extends Fragment {
         return view;
     }
 
-    //@Override
+    @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         this.googleMap = googleMap;
         // When map is loaded
@@ -90,14 +106,14 @@ public class CoffeeFragment extends Fragment {
         updateLocationUI();
 
         // Get the current location of the device and set the position of the map.
-        //getDeviceLocation();
+        getDeviceLocation();
     }
 
-    /*private void getDeviceLocation() {
+    private void getDeviceLocation() {
         try {
             if (locationPermissionGranted) {
                 Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
-                locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
+                locationResult.addOnCompleteListener((Executor) this, new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
                         if (task.isSuccessful()) {
@@ -121,17 +137,18 @@ public class CoffeeFragment extends Fragment {
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage(), e);
         }
-    }*/
+    }
 
     private void getLocationPermission() {
-        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
+
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED) {
             locationPermissionGranted = true;
-        } else {
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+        }  else {
+            // You can directly ask for the permission.
+            // The registered ActivityResultCallback gets the result of this request.
+            requestPermissionLauncher.launch(
+                    Manifest.permission.ACCESS_FINE_LOCATION);
         }
     }
 
@@ -141,10 +158,10 @@ public class CoffeeFragment extends Fragment {
         }
         try {
             if (locationPermissionGranted) {
-                //googleMap.setMyLocationEnabled(true);
+                googleMap.setMyLocationEnabled(true);
                 googleMap.getUiSettings().setMyLocationButtonEnabled(true);
             } else {
-                //googleMap.setMyLocationEnabled(false);
+                googleMap.setMyLocationEnabled(false);
                 googleMap.getUiSettings().setMyLocationButtonEnabled(false);
                 lastKnownLocation = null;
                 getLocationPermission();
